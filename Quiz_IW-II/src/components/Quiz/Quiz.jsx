@@ -1,20 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Quiz.css'
+import { data } from '../../assets/data'
 
-const Quiz = () =>{
+const Quiz = () => {
+
+  let [index, setIndex] = useState(0);
+  let [question, setQuestion] = useState(data[index]);
+  
+  const checkAns = (e, ans) => {
+    if (question.ans === ans) {
+      e.target.classList.add("correto")
+    }
+    else {
+      e.target.classList.add("errado")
+    }
+  }
+
   return (
     <div className='container'>
-        <h1>Quiz App</h1>
-        <hr />
-        <h2>blablablabla?</h2>
-        <ul>
-            <li>blabla?</li>
-            <li>blablabla?</li>
-            <li>bla?</li>
-            <li>blablablablablabla?</li>
-        </ul>
-        <button>Next</button>
-        <div className="index">1 de 5 perguntas</div>
+      <h1>Quiz App</h1>
+      <hr />
+      <h2>{index + 1}. {question.question}</h2>
+      <ul>
+        <li onClick={(e) => {checkAns (e, 1 ) }}>{question.option1}</li>
+        <li onClick={(e) => {checkAns ( e, 2 ) }}>{question.option2}</li>
+        <li onClick={(e) => {checkAns ( e, 3 ) }}>{question.option3}</li>
+        <li onClick={(e) => {checkAns ( e, 4 ) }}>{question.option4}</li>
+      </ul>
+      <button>Next</button>
+      <div className="index">1 de 5 perguntas</div>
     </div>
   )
 }

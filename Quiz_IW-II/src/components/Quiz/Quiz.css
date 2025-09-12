@@ -30,6 +30,7 @@
     font-size: 20px;
     cursor: pointer;
 }
+
 .container button{
     margin: auto;
     width: 250px;
@@ -44,4 +45,12 @@
 .container .index{
     margin: auto;
     font-size: 18px;
+}
+.container .correto{
+    background: #dffff2;
+    border-color: #00d397;
+}
+.container .errado{
+    background: #ffebeb;
+    border-color: #ff4a4a;
 }
